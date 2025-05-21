@@ -59,7 +59,7 @@ animation: text-shine 3s ease-in-out infinite alternate;
 } 
 
 .btn-small {
-@apply flex items-center gap-2 text-[13px] font-semiboldtext-white bg-linear-to-r from-purple-500/85 to-purple-700 px-5 py-1.5 rounded cursor-pointer ;
+@apply flex items-center gap-2 text-[13px] font-semibold text-white bg-linear-to-r from-purple-500/85 to-purple-700 px-5 py-1.5 rounded cursor-pointer ;
 } 
 .btn-small-light { 
 @apply flex items-center gap-2 text-[12px] font-semibold text-purple-800 bg-purple-600/15 border border-purple-50 hover:border-purple-400 px-3 py-1.5 rounded cursor-pointer;
