@@ -1,6 +1,9 @@
 import React, { useState } from 'react'
 import heroImg from '../assets/hero-img.webp';
 import { useNavigate } from 'react-router-dom';
+import Login from './Auth/Login';
+import SignUp from './Auth/SignUp';
+import Modal from '../components/Modal';
 
 const LandingPage = () => {
  const navigate = useNavigate(); 
@@ -8,7 +11,7 @@ const [openAuthModal, setOpenAuthModal] = useState(false);
 const [currentPage, setCurrentPage] = useState("login"); 
 const handleCTA = () => {}; 
 return ( 
-<div className='w-full min-h-full bg-white pb-96'> 
+<div className='w-full min-h-full bg-white'> 
 <div className="container  mx-auto px-4 py-6 md:w-[90%]"> 
 {/* Header */} 
 <header className="flex justify-between items-center mb-16"> 
@@ -45,7 +48,55 @@ className='w-full  rounded-lg '
 />
 </div>
 </div>
+
+<section className="mt-20"> 
+<h2 className="text-2xl font-bold text-center mb-12"> 
+Features That Make You Shine 
+</h2> 
+<div className="grid grid-cols-1 md:grid-cols-3 gap-8"> 
+<div className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition"> 
+<h3 className="text-lg font-semibold mb-3">Easy Editing</h3> 
+<p className="text-gray-600"> 
+Update your resume sections with live preview and instant formatting. 
+</p> 
 </div> 
+<div className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition">
+<h3 className="text-lg font-semibold mb-3"> 
+Beautiful Templates 
+</h3> 
+<p className="text-gray-600"> 
+Choose from modern, professional templates that are easy to customize. 
+</p> 
+</div>
+
+<div className="bg-gray-50 p-6 rounded-xl shadow-sm hover:shadow-md transition"> 
+<h3 className="text-lg font-semibold mb-3">One-Click Export</h3> 
+<p className="text-gray-600"> 
+Download your resume instantly as a high-quality PDF with one click. 
+</p> 
+</div> 
+</div>
+</section>
+
+</div> 
+
+<Modal
+isOpen={openAuthModal }
+onClose={() => { 
+setOpenAuthModal(false); 
+setCurrentPage("login"); 
+}} 
+hideHeader 
+>
+<div> 
+{currentPage=== "login" && <Login setCurrentPage={setCurrentPage} />} 
+{currentPage=== "signup" && ( 
+<SignUp setCurrentPage={setCurrentPage} /> 
+)} 
+</div> 
+</Modal>
+
+
 </div>
   )
 }
