@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import Input from '../../components/inputs/Input';
 import { validateEmail } from '../../utils/helper';
+import ProfilePhotoSelector from '../../components/inputs/ProfilePhotoSelector';
 
 const SignUp = ({setCurrentPage}) => {
   const [profilePic, setProfilePic] = useState('');
@@ -52,6 +53,9 @@ const SignUp = ({setCurrentPage}) => {
       </p>
 
       <form onSubmit={handleSignUp}>
+
+     <ProfilePhotoSelector image={profilePic} setImage={setProfilePic} />
+
         <Input
           value={fullName}
           onChange={({ target }) => setFullName(target.value)}

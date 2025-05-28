@@ -2,7 +2,7 @@ import React from 'react'
 
 const Modal = ({
   children,
-  isopen,
+  isOpen,
   onClose,
   title,
   hideHeader,
@@ -11,6 +11,8 @@ const Modal = ({
   actionBtnText,
   onActionClick,
 }) => {
+  if(!isOpen) return null
+  // If the modal is not open, return null to render nothing
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center w-full h-full bg-black/40">
       {/* Modal Content */}
