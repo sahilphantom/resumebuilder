@@ -3,6 +3,8 @@ const express = require("express");
 const cors = require("cors"); 
 const path = require("path"); 
 const connectDB = require("./configure/db");
+const authRoutes = require("./routes/authRoutes");
+// const resumeRoutes = require("./routes/resumeRoutes"); // Uncomment when resume routes are implemented
 
 const app = express(); 
 
@@ -16,10 +18,16 @@ allowedHeaders: ["Content-Type", "Authorization"],
 );
 
 // Connect to MongoDB
-connectDB();   
+connectDB();  
+
 
 // Middleware to parse JSON requests// Middleware 
 app.use(express.json()); 
+
+// Routes
+app.use("/api/auth", authRoutes);
+// app.use("/api/users", resumeRoutes);
+
 
 // Start Server 
 const PORT = process.env.PORT || 5000; 
