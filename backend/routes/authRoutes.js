@@ -18,7 +18,7 @@ router.post("/upload-image",upload.single("image"), async (req, res) => {
     const imageUrl = `${req.protocol}://${req.get("host")}/uploads/${ 
 req.file.filename 
 }`;
-    res.status(200).json({ imageUrl });
+    res.status(200).json({ imageUrl }); 
 });
 
 module.exports = router;
