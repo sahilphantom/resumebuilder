@@ -28,6 +28,14 @@ app.use(express.json());
 app.use("/api/auth", authRoutes);
 // app.use("/api/users", resumeRoutes);
 
+// Server uploads folder
+app.use("/uploads", express.static(path.join(__dirname, "uploads"),{
+    setHeaders: (res, path) => {
+        res.setHeader("Access-Control-Allow-Origin", "http://localhost:5173"); 
+    },
+}));
+
+
 
 // Start Server 
 const PORT = process.env.PORT || 5000; 
