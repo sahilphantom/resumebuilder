@@ -4,7 +4,7 @@ const cors = require("cors");
 const path = require("path"); 
 const connectDB = require("./configure/db");
 const authRoutes = require("./routes/authRoutes");
-// const resumeRoutes = require("./routes/resumeRoutes"); // Uncomment when resume routes are implemented
+const resumeRoutes = require("./routes/resumeRoutes"); // Uncomment when resume routes are implemented
 
 const app = express(); 
 
@@ -26,7 +26,7 @@ app.use(express.json());
 
 // Routes
 app.use("/api/auth", authRoutes);
-// app.use("/api/users", resumeRoutes);
+app.use("/api/users", resumeRoutes);
 
 // Server uploads folder
 app.use("/uploads", express.static(path.join(__dirname, "uploads"),{
