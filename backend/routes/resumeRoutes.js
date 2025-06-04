@@ -5,7 +5,7 @@ getUserResumes,
 getResumeById, 
 updateResume, 
 deleteResume, 
-} = require("../controllers/resumeController"); 
+} = require("../controller/resumeController"); 
 const { protect} = require("../middlewares/authMiddleware"); 
 // const { uploadResumeImages } = require("../controllers/uploadImages"); 
 
